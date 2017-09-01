@@ -1,0 +1,47 @@
+C51 COMPILER V9.50a   I2C                                                                  07/17/2016 01:21:29 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE I2C
+OBJECT MODULE PLACED IN i2c.OBJ
+COMPILER INVOKED BY: C:\Keil4\C51\BIN\C51.EXE i2c.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"delay.h"
+   3          unsigned char ss,mi,hh,d,dd,mm,yy,temp;
+   4          sfr LCD =0x80;
+   5          sbit RS =P3^4;
+   6          sbit RW =P3^5;
+   7          sbit EN =P3^6;
+   8          sbit SCL = P1^1;
+   9          sbit SDA = P1^0;
+  10          #include"lcd.h"
+  11          #include"i2c.h"
+  12          #include"i2c_device.h"
+  13          #include"clk_set.h"
+  14          #include"clk_read.h"
+  15          main(){
+  16   1      init();
+  17   1      ldata('k');
+  18   1      clock_set();
+  19   1      ldata('j');
+  20   1      while(1){
+  21   2      clock();
+  22   2      cmd(0x80);
+  23   2      }
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    639    ----
+   CONSTANT SIZE    =     43    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
